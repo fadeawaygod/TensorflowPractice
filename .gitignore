@@ -103,4 +103,6 @@ ENV/
 # vscode
 .vscode
 
+# dataset
 MNIST_data/
+*.zip
