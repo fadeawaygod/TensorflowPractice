@@ -36,6 +36,7 @@ def read_data(filename):
     """Extract the first file enclosed in a zip file as a list of words"""
     with zipfile.ZipFile(filename) as f:
         data = tf.compat.as_str(f.read(f.namelist()[0])).split()
+    '''Return tokenized word array.'''
     return data
 
 
@@ -66,7 +67,7 @@ def build_dataset(words):
     return data, count, dictionary, reverse_dictionary
 
 
-data, count, dictionary, reverse_dictionary = build_dataset(words)
+data, count, reverse_dictionary = build_dataset(words)
 del words  # Hint to reduce memory.
 print('Most common words (+UNK)', count[:5])
 print('Sample data', data[:10], [reverse_dictionary[i] for i in data[:10]])
